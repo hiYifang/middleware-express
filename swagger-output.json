@@ -41,16 +41,78 @@
     },
     "/posts/": {
       "get": {
-        "tags": [],
+        "tags": [
+          "Posts"
+        ],
+        "summary": "取得全部貼文",
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "關鍵字",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "排序方式，desc 由新到舊，asc 由舊到新",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功取得資料",
+            "schema": {
+              "$ref": "#/definitions/Posts"
+            }
+          }
+        }
       },
       "post": {
-        "tags": [],
+        "tags": [
+          "Posts"
+        ],
+        "summary": "新增一則貼文",
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "parameters_name",
+            "in": "body",
+            "description": "貼文資訊",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string",
+                  "example": "貼文內容"
+                },
+                "image": {
+                  "type": "string",
+                  "example": "貼文圖片來源"
+                }
+              },
+              "required": [
+                "content"
+              ]
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功新增貼文",
+            "schema": {
+              "$ref": "#/definitions/Posts"
+            }
+          },
+          "400": {
+            "description": "新增貼文失敗",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
       }
     }
   },
@@ -117,28 +179,9 @@
     "Error": {
       "type": "object",
       "properties": {
-        "status": {
+        "message": {
           "type": "string",
-          "example": "error"
-        },
-        "msg": {
-          "type": "object",
-          "properties": {
-            "errors": {
-              "type": "object",
-              "properties": {
-                "field": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": " 錯誤訊息"
-                    }
-                  }
-                }
-              }
-            }
-          }
+          "example": " 錯誤訊息"
         }
       }
     }

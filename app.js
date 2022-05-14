@@ -59,6 +59,7 @@ const resErrorProd = (err, res) => {
 const resErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
+    field: err.field,
     message: err.message,
     error: err,
     stack: err.stack
@@ -85,19 +86,14 @@ app.use(function (err, req, res, next) {
       err.message = "無效的 ID，請重新確認！";
       err.isOperational = true;
       return resErrorProd(err, res);
-    } else if (err.name === "ValidationError") {
-      // mongoose 驗證失敗
-      err.message = "未填寫欄位，請重新確認！";
+    } else if (err.name === "SyntaxError") {
+      err.statusCode = 400;
+      err.message = "語法結構錯誤，請重新確認！";
       err.isOperational = true;
       return resErrorProd(err, res);
     } else if (err.code === 11000) {
       // mongoose 存在重複的 _id
       err.message = "Email 已有人使用，請重新註冊！";
-      err.isOperational = true;
-      return resErrorProd(err, res);
-    } else if (err.name === "SyntaxError") {
-      err.statusCode = 400;
-      err.message = "語法結構錯誤，請重新確認！";
       err.isOperational = true;
       return resErrorProd(err, res);
     }

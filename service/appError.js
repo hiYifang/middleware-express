@@ -1,6 +1,6 @@
-const appError = (httpStatus, errMessage, next, field = '') => {
+const appError = (httpStatus, errMessage, field = '', next) => {
   const error = new Error(errMessage);
-  if(field !== ''){error.name = field};
+  if (field !== '') { error.field = field };
   error.statusCode = httpStatus;
   error.isOperational = true;
   next(error);

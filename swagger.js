@@ -36,14 +36,7 @@ const doc = {
       password: 'name1234',
     },
     Error: {
-      status: 'error',
-      msg: {
-        errors: {
-          field: { // 不同欄位名稱
-            message: ' 錯誤訊息',
-          },
-        },
-      },
+      message: ' 錯誤訊息'
     },
   }
 };
