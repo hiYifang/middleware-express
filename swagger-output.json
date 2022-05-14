@@ -1,0 +1,146 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MetaWall API",
+    "description": "MetaWall API 文件"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Posts",
+      "description": " 貼文"
+    },
+    {
+      "name": "Users",
+      "description": " 會員"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/register": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/posts/": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {
+    "Posts": {
+      "type": "object",
+      "properties": {
+        "editor": {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "string",
+              "example": "001"
+            },
+            "nickName": {
+              "type": "string",
+              "example": " 會員暱稱"
+            },
+            "avatar": {
+              "type": "string",
+              "example": "https://..."
+            }
+          }
+        },
+        "content": {
+          "type": "string",
+          "example": " 搶到想要的 NFT 啦"
+        },
+        "image": {
+          "type": "string",
+          "example": "https://..."
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2022-05-09T08:39:25.455Z"
+        }
+      }
+    },
+    "Users": {
+      "type": "object",
+      "properties": {
+        "nickName": {
+          "type": "string",
+          "example": " 會員暱稱"
+        },
+        "gender": {
+          "type": "boolean",
+          "example": true
+        },
+        "avatar": {
+          "type": "string",
+          "example": "https://..."
+        },
+        "email": {
+          "type": "string",
+          "example": "name@gmail.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "name1234"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "example": "error"
+        },
+        "msg": {
+          "type": "object",
+          "properties": {
+            "errors": {
+              "type": "object",
+              "properties": {
+                "field": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": " 錯誤訊息"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
