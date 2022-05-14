@@ -65,7 +65,6 @@ const resErrorDev = (err, res) => {
 // error handler middleware
 app.use(function (err, req, res, next) {
   err.statusCode = err.statusCode || 500;
-  err.status = err.status || 'error';
 
   // dev
   if (process.env.NODE_ENV === "dev") {
