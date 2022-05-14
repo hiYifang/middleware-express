@@ -21,22 +21,20 @@ const doc = {
     Posts: {
       editor: {
         _id: '001',
-        nickName: ' 會員暱稱',
+        nickName: '會員暱稱',
         avatar: 'https://...'
       },
-      content: ' 搶到想要的 NFT 啦',
+      content: '搶到想要的 NFT 啦',
       image: 'https://...',
       createdAt: '2022-05-09T08:39:25.455Z'
     },
     Users: {
-      nickName: ' 會員暱稱',
+      nickName: '會員暱稱',
       gender: true,
-      avatar: 'https://...',
-      email: 'name@gmail.com',
-      password: 'name1234',
+      avatar: 'https://...'
     },
     Error: {
-      message: ' 錯誤訊息'
+      message: '錯誤訊息'
     },
   }
 };

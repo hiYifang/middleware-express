@@ -33,10 +33,55 @@
     },
     "/users/register": {
       "post": {
-        "tags": [],
+        "tags": [
+          "Users"
+        ],
+        "summary": "註冊一位會員",
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "parameters_name",
+            "in": "body",
+            "description": "會員資訊",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nickName": {
+                  "type": "string",
+                  "example": "會員暱稱"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "name@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "name1234"
+                }
+              },
+              "required": [
+                "nickName",
+                "email",
+                "password"
+              ]
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功註冊會員",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          },
+          "400": {
+            "description": "新增會員失敗",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
       }
     },
     "/posts/": {
@@ -165,14 +210,6 @@
         "avatar": {
           "type": "string",
           "example": "https://..."
-        },
-        "email": {
-          "type": "string",
-          "example": "name@gmail.com"
-        },
-        "password": {
-          "type": "string",
-          "example": "name1234"
         }
       }
     },
