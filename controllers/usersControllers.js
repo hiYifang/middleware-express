@@ -21,6 +21,7 @@ const users = {
     */
     let { nickName, email, password } = req.body;
     const emailExist = await User.findOne({ email });
+    const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     /**
       #swagger.responses[400] = {
         description: ' 新增會員失敗 ',
@@ -33,6 +34,8 @@ const users = {
       return next(appError(400, "暱稱至少 2 個字元以上", next, "nickName"))
     } else if (!email) {
       return next(appError(400, "註冊失敗，請填寫 Email 欄位", next, "email"))
+    } else if (email.search(emailRule) === -1) {
+      return next(appError(400, "Email 格式錯誤，請重新填寫 Email 欄位", next, "email"))
     } else if (emailExist) {
       return next(appError(400, "Email 已被註冊，請替換新的 Email", next, "email"))
     } else if (!password) {
