@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "0f71ed3c-cb03-4023-81ac-4e447edbe629",
+		"name": "NodeJS_W5_Middleware Express - heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "取得所有 Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://peaceful-springs-57070.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"peaceful-springs-57070",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "desc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增單筆 Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"找到大海的照片，好美啊\",\n    \"image\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peaceful-springs-57070.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"peaceful-springs-57070",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增一位 User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nickName\": \"abcde\",\n    \"email\": \"abcde-123@gmail.com\",\n    \"password\": \"abcde123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peaceful-springs-57070.herokuapp.com/users/register",
+					"protocol": "https",
+					"host": [
+						"peaceful-springs-57070",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
